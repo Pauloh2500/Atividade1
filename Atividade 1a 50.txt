@@ -1,0 +1,2295 @@
+1.
+
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    double nota;
+
+    do {
+      System.out.print("Digite a nota em 0 a 10: ");
+      nota = scanner.nextDouble();
+      
+      if (nota < 0 || nota > 10) {
+        System.out.println("Nota inválida. Digite novamente.");
+      }
+    }while  (nota <0 || nota > 10);
+
+      System.out.print("Nota válida: " + nota);
+  
+
+
+       }    
+  }
+
+  
+  2.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+   Scanner scanner = new Scanner(System.in);
+    String nomeUsuario, senha;
+  
+   do{
+    System.out.println("Digite o Nome de usuario: ");
+     nomeUsuario= scanner.nextLine();
+
+     System.out.println("Digite a senha: ");
+      senha= scanner.nextLine();
+
+     {if(nomeUsuario.equals(senha))         
+     System.out.print("Erro, senha igual ao nome de usuario. ");
+       }
+     } while (nomeUsuario.equals(senha));
+
+    System.out.println("Cadastro realizado com sucesso");
+    
+
+  
+     
+  }
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+}
+
+
+
+3.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    
+  Scanner scanner = new Scanner(System.in);
+
+    String nome;
+    int  idade; 
+   double salario;
+     char  sexo;
+    char estadoCivil;
+       
+    do{
+      
+      System.out.println("Digite seu nome ");
+      nome = scanner.nextLine();
+    } while (nome.length() <= 3);
+      
+    do{
+
+      System.out.println("Digite sua idade ");
+      idade = scanner.nextInt();
+    } while (idade < 0 || idade > 150);
+
+    do{
+
+      System.out.println("Digite seu salario ");
+      salario = scanner.nextDouble();
+      } while (salario < 1);
+
+    do{
+
+     System.out.println("Digite seu sexo ('f' ou 'm')  ");
+      sexo = scanner.next().charAt(0);  
+    } while (sexo != 'f' && sexo != 'm');
+
+    do{
+      System.out.println("Digite seu estado civil ('s', 'c', 'v', 'd')  ");
+      estadoCivil = scanner.next().charAt(0);
+    } while (estadoCivil != 's' && estadoCivil != 'c' && estadoCivil != 'v' && estadoCivil != 'd');
+     
+    System.out.println("Nome: " + nome);
+    System.out.println("Idade: " + idade);
+    System.out.println("Salario: " + salario);
+    System.out.println("Sexo: " + sexo);
+    System.out.println("Estado Civil: " + estadoCivil);
+    
+      
+    
+      
+
+        
+  }
+  
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+}
+
+
+4.
+
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+public class Main {
+  public static void main(String[] args) {
+    int populacaoA = 80000;
+    int populacaoB = 200000;
+    double taxaCrescimentoA = 0.03;
+    double taxaCrescimentoB = 0.015;
+    int anos = 0;
+    while (populacaoA < populacaoB) {
+      populacaoA += populacaoA * taxaCrescimentoA;
+      populacaoB += populacaoB * taxaCrescimentoB;
+      anos++;
+    
+   
+  }
+System.out.println ("apos" + anos  + "anos, a populacao de A ultrapassa a populacao de B");
+  System.out.println ("populacao de A: " + populacaoA );
+    System.out.println("populacao de B: " + populacaoB);
+      
+  
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+}
+}
+  
+5.
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int populacaoA, populacaoB;
+        double taxaCrescimentoA, taxaCrescimentoB;
+
+        // Solicita e valida a população do país A
+        do {
+            System.out.print("Informe a população inicial do país A: ");
+            populacaoA = scanner.nextInt();
+            if (populacaoA <= 0) {
+                System.out.println("População inválida. Informe um valor positivo.");
+            }
+        } while (populacaoA <= 0);
+
+        // Solicita e valida a população do país B
+        do {
+            System.out.print("Informe a população inicial do país B: ");
+            populacaoB = scanner.nextInt();
+            if (populacaoB <= 0) {
+                System.out.println("População inválida. Informe um valor positivo.");
+            }
+        } while (populacaoB <= 0);
+
+        // Solicita e valida a taxa de crescimento do país A
+        do {
+            System.out.print("Informe a taxa de crescimento anual do país A (%): ");
+            taxaCrescimentoA = scanner.nextDouble() / 100;
+            if (taxaCrescimentoA <= 0) {
+                System.out.println("Taxa de crescimento inválida. Informe um valor positivo.");
+            }
+        } while (taxaCrescimentoA <= 0);
+
+        // Solicita e valida a taxa de crescimento do país B
+        do {
+            System.out.print("Informe a taxa de crescimento anual do país B (%): ");
+            taxaCrescimentoB = scanner.nextDouble() / 100;
+            if (taxaCrescimentoB <= 0) {
+                System.out.println("Taxa de crescimento inválida. Informe um valor positivo.");
+            }
+        } while (taxaCrescimentoB <= 0);
+
+        int anos = calcularAnos(populacaoA, populacaoB, taxaCrescimentoA, taxaCrescimentoB);
+
+        System.out.println("Após " + anos + " anos, a população do país A ultrapassará ou igualará a população do país B.");
+        System.out.println("População do país A: " + populacaoA);
+        System.out.println("População do país B: " + populacaoB);
+
+        scanner.close();
+    }
+
+    public static int calcularAnos(int populacaoA, int populacaoB, double taxaCrescimentoA, double taxaCrescimentoB) {
+        int anos = 0;
+        while (populacaoA <= populacaoB) {
+            populacaoA += populacaoA * taxaCrescimentoA;
+            populacaoB += populacaoB * taxaCrescimentoB;
+            anos++;
+        }
+        return anos;
+    }
+}
+
+
+6.
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+public class Main {
+  public static void main(String[] args) {
+    for (int i = 1; i <= 20; i++) {
+        System.out.print(i + " ");
+    }
+  }
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+}
+
+7.
+
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    int quantidadeNumeros = 5;
+    int maiorNumero = Integer.MIN_VALUE;
+
+    for (int i = 0; i < quantidadeNumeros; i++) {
+        System.out.print("Digite o " + (i + 1) + "º número: ");
+        int numero = scanner.nextInt();
+
+        if (numero > maiorNumero) {
+            maiorNumero = numero;
+        }
+    }
+
+    System.out.println("O maior número digitado é: " + maiorNumero);
+
+    scanner.close();
+  }
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+}
+
+
+8.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int quantidadeNumeros = 5;
+        int soma = 0;
+
+        for (int i = 0; i < quantidadeNumeros; i++) {
+            System.out.print("Digite o " + (i + 1) + "º número: ");
+            int numero = scanner.nextInt();
+            soma += numero;
+        }
+
+        double media = (double) soma / quantidadeNumeros;
+
+        System.out.println("A soma dos números é: " + soma);
+        System.out.println("A média dos números é: " + media);
+
+        scanner.close();
+    }
+}
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+
+9.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Números ímpares entre 1 e 50:");
+        for (int i = 1; i <= 50; i++) {
+            if (i % 2 != 0) {
+                System.out.println(i);
+            }
+        }
+    }
+}
+
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+
+10.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicita e lê os dois números inteiros
+        System.out.print("Digite o primeiro número inteiro: ");
+        int numero1 = scanner.nextInt();
+
+        System.out.print("Digite o segundo número inteiro: ");
+        int numero2 = scanner.nextInt();
+
+        // Determina o menor e o maior número para definir o intervalo
+        int menorNumero = Math.min(numero1, numero2);
+        int maiorNumero = Math.max(numero1, numero2);
+
+        // Imprime os números no intervalo compreendido pelos dois números
+        System.out.println("Números no intervalo entre " + menorNumero + " e " + maiorNumero + ":");
+        for (int i = menorNumero; i <= maiorNumero; i++) {
+            System.out.println(i);
+        }
+
+        scanner.close();
+    }
+}
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+11.
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main
+ {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicita e lê os dois números inteiros
+        System.out.print("Digite o primeiro número inteiro: ");
+        int numero1 = scanner.nextInt();
+
+        System.out.print("Digite o segundo número inteiro: ");
+        int numero2 = scanner.nextInt();
+
+        // Determina o menor e o maior número para definir o intervalo
+        int menorNumero = Math.min(numero1, numero2);
+        int maiorNumero = Math.max(numero1, numero2);
+
+        // Imprime os números no intervalo compreendido pelos dois números
+        System.out.println("Números no intervalo entre " + menorNumero + " e " + maiorNumero + ":");
+        int soma = 0;
+        for (int i = menorNumero; i <= maiorNumero; i++) {
+            System.out.println(i);
+            soma += i;
+        }
+
+        // Exibe a soma dos números no intervalo
+        System.out.println("A soma dos números no intervalo é: " + soma);
+
+        scanner.close();
+    }
+}
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+12.
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicita e lê o número para gerar a tabuada
+        System.out.print("Digite um número inteiro entre 1 e 10: ");
+        int numero = scanner.nextInt();
+
+        // Verifica se o número está dentro do intervalo válido
+        if (numero < 1 || numero > 10) {
+            System.out.println("Número inválido. Por favor, digite um número entre 1 e 10.");
+        } else {
+            System.out.println("Tabuada de " + numero + ":");
+
+            // Gera e imprime a tabuada do número fornecido
+            for (int i = 1; i <= 10; i++) {
+                int resultado = numero * i;
+                System.out.println(numero + " X " + i + " = " + resultado);
+            }
+        }
+
+        scanner.close();
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+13.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicita e lê os números base e expoente
+        System.out.print("Digite o número base: ");
+        double base = scanner.nextDouble();
+
+        System.out.print("Digite o expoente (deve ser um número inteiro positivo): ");
+        int expoente = scanner.nextInt();
+
+        // Verifica se o expoente é positivo
+        if (expoente < 0) {
+            System.out.println("O expoente deve ser um número inteiro positivo.");
+        } else {
+            // Calcula a potência manualmente
+            double resultado = calcularPotencia(base, expoente);
+            System.out.println(base + " elevado a " + expoente + " é igual a: " + resultado);
+        }
+
+        scanner.close();
+    }
+
+    // Função para calcular a potência
+    public static double calcularPotencia(double base, int expoente) {
+        double resultado = 1;
+        for (int i = 0; i < expoente; i++) {
+            resultado *= base;
+        }
+        return resultado;
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+14.
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int quantidadeNumeros = 10;
+        int numerosPares = 0;
+        int numerosImpares = 0;
+
+        // Solicita e lê os 10 números inteiros
+        for (int i = 0; i < quantidadeNumeros; i++) {
+            System.out.print("Digite o " + (i + 1) + "º número inteiro: ");
+            int numero = scanner.nextInt();
+
+            // Verifica se o número é par ou ímpar e atualiza as contagens
+            if (numero % 2 == 0) {
+                numerosPares++;
+            } else {
+                numerosImpares++;
+            }
+        }
+
+        // Exibe a quantidade de números pares e ímpares
+        System.out.println("Quantidade de números pares: " + numerosPares);
+        System.out.println("Quantidade de números ímpares: " + numerosImpares);
+
+        scanner.close();
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+15.
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicita e lê o valor de n (número de termos)
+        System.out.print("Digite o número de termos da série de Fibonacci: ");
+        int n = scanner.nextInt();
+
+        // Exibe a série de Fibonacci até o n-ésimo termo
+        System.out.println("Série de Fibonacci até o " + n + "º termo:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(calcularFibonacci(i) + " ");
+        }
+
+        scanner.close();
+    }
+
+    // Função para calcular o n-ésimo termo da série de Fibonacci
+    public static int calcularFibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        } else {
+            return calcularFibonacci(n - 1) + calcularFibonacci(n - 2);
+        }
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+16.
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+public class Main {
+    public static void main(String[] args) {
+        int n1 = 0, n2 = 1, n3;
+        System.out.print(n1 + ", " + n2); // imprime os dois primeiros termos
+
+        n3 = n1 + n2;
+
+        while (n3 <= 500) {
+            System.out.print(", " + n3);
+            n1 = n2;
+            n2 = n3;
+            n3 = n1 + n2;
+        }
+    }
+}
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+17.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+  public class Main {
+      public static void main(String[] args) {
+          Scanner scanner = new Scanner(System.in);
+
+          // Solicita e lê o número inteiro
+          System.out.print("Digite um número inteiro para calcular o fatorial: ");
+          int numero = scanner.nextInt();
+
+          // Calcula o fatorial
+          int fatorial = calcularFatorial(numero);
+
+          // Exibe o resultado
+          System.out.println(numero + "! = " + fatorial);
+
+          scanner.close();
+      }
+
+      // Função para calcular o fatorial de um número
+      public static int calcularFatorial(int numero) {
+          int fatorial = 1;
+          for (int i = 1; i <= numero; i++) {
+              fatorial *= i;
+          }
+          return fatorial;
+      }
+  }
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+18.
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicita e lê a quantidade de números a serem inseridos
+        System.out.print("Digite a quantidade de números a serem inseridos: ");
+        int quantidadeNumeros = scanner.nextInt();
+
+        // Inicializa variáveis para o menor, o maior e a soma dos valores
+        int menor = Integer.MAX_VALUE;
+        int maior = Integer.MIN_VALUE;
+        int soma = 0;
+
+        // Loop para ler os números e atualizar o menor, o maior e a soma
+        for (int i = 1; i <= quantidadeNumeros; i++) {
+            System.out.print("Digite o " + i + "º número: ");
+            int numero = scanner.nextInt();
+
+            // Atualiza o menor e o maior
+            if (numero < menor) {
+                menor = numero;
+            }
+            if (numero > maior) {
+                maior = numero;
+            }
+
+            // Atualiza a soma
+            soma += numero;
+        }
+
+        // Exibe o menor, o maior e a soma dos valores
+        System.out.println("Menor valor: " + menor);
+        System.out.println("Maior valor: " + maior);
+        System.out.println("Soma dos valores: " + soma);
+
+        scanner.close();
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+19.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Quantos números deseja inserir? ");
+        int quantidade = scanner.nextInt();
+
+        if (quantidade <= 0) {
+            System.out.println("Quantidade inválida. Encerrando o programa.");
+            return;
+        }
+
+        double menorValor = Double.MAX_VALUE;
+        double maiorValor = Double.MIN_VALUE;
+        double soma = 0;
+
+        for (int i = 0; i < quantidade; i++) {
+            double numero;
+            do {
+                System.out.print("Digite o " + (i + 1) + "º número (entre 0 e 1000): ");
+                numero = scanner.nextDouble();
+            } while (numero < 0 || numero > 1000);
+
+            // Atualiza o menor valor
+            if (numero < menorValor) {
+                menorValor = numero;
+            }
+
+            // Atualiza o maior valor
+            if (numero > maiorValor) {
+                maiorValor = numero;
+            }
+
+            // Atualiza a soma
+            soma += numero;
+        }
+
+        System.out.println("Menor valor: " + menorValor);
+        System.out.println("Maior valor: " + maiorValor);
+        System.out.println("Soma dos valores: " + soma);
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+20.
+
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        char continuar;
+
+        do {
+            System.out.print("Digite um número inteiro positivo menor que 16 para calcular o fatorial: ");
+            int numero = scanner.nextInt();
+
+            // Verifica se o número está dentro dos limites permitidos
+            if (numero >= 0 && numero < 17) {
+                long fatorial = 1;
+
+                for (int i = 1; i <= numero; i++) {
+                    fatorial *= i;
+                }
+
+                System.out.println("O fatorial de " + numero + " é: " + fatorial);
+            } else {
+                System.out.println("Número inválido. Por favor, digite um número inteiro positivo menor que 16.");
+            }
+
+            System.out.print("Deseja calcular o fatorial de outro número? (s/n): ");
+            continuar = scanner.next().charAt(0);
+        } while (continuar == 's' || continuar == 'S');
+
+        System.out.println("Programa encerrado.");
+    }
+}
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+21.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro: ");
+        int numero = scanner.nextInt();
+
+        boolean ehPrimo = true;
+
+        // Se o número for menor ou igual a 1, não é primo
+        if (numero <= 1) {
+            ehPrimo = false;
+        } else {
+            // Verifica se o número é divisível por algum número entre 2 e sua raiz quadrada
+            for (int i = 2; i <= Math.sqrt(numero); i++) {
+                if (numero % i == 0) {
+                    ehPrimo = false;
+                    break;
+                }
+            }
+        }
+
+        if (ehPrimo) {
+            System.out.println(numero + " é um número primo.");
+        } else {
+            System.out.println(numero + " não é um número primo.");
+        }
+    }
+}
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+22.
+
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite um número inteiro: ");
+        int numero = scanner.nextInt();
+
+        if (verificarPrimo(numero)) {
+            System.out.println(numero + " é um número primo.");
+        } else {
+            System.out.println(numero + " não é um número primo. Ele é divisível por: ");
+            listarDivisores(numero);
+        }
+    }
+
+    public static boolean verificarPrimo(int numero) {
+        if (numero <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(numero); i++) {
+            if (numero % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void listarDivisores(int numero) {
+        for (int i = 2; i <= numero / 2; i++) {
+            if (numero % i == 0) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+}
+
+
+23.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro: ");
+        int n = scanner.nextInt();
+
+        int divisoes = 0;
+
+        System.out.println("Números primos entre 1 e " + n + ":");
+        for (int i = 2; i <= n; i++) {
+            boolean ehPrimo = true;
+
+            // Verifica se o número é primo
+            for (int j = 2; j <= Math.sqrt(i); j++) {
+                divisoes++; // Conta o número de divisões
+                if (i % j == 0) {
+                    ehPrimo = false;
+                    break;
+                }
+            }
+
+            // Se for primo, imprime-o
+            if (ehPrimo) {
+                System.out.println(i);
+            }
+        }
+
+        System.out.println("Número total de divisões: " + divisoes);
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+24.
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Quantas notas você deseja calcular a média? ");
+        int quantidadeNotas = scanner.nextInt();
+
+        double soma = 0;
+
+        for (int i = 1; i <= quantidadeNotas; i++) {
+            System.out.print("Digite a nota " + i + ": ");
+            double nota = scanner.nextDouble();
+            soma += nota;
+        }
+
+        double media = soma / quantidadeNotas;
+        System.out.println("A média aritmética das " + quantidadeNotas + " notas é: " + media);
+    }
+}
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+25.
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o número de pessoas na turma: ");
+        int numeroPessoas = scanner.nextInt();
+
+        int somaIdades = 0;
+
+        for (int i = 1; i <= numeroPessoas; i++) {
+            System.out.print("Digite a idade da pessoa " + i + ": ");
+            int idade = scanner.nextInt();
+            somaIdades += idade;
+        }
+
+        double mediaIdades = (double) somaIdades / numeroPessoas;
+
+        System.out.println("A média de idade da turma é: " + mediaIdades);
+
+        if (mediaIdades >= 0 && mediaIdades <= 25) {
+            System.out.println("A turma é considerada jovem.");
+        } else if (mediaIdades >= 26 && mediaIdades <= 60) {
+            System.out.println("A turma é considerada adulta.");
+        } else {
+            System.out.println("A turma é considerada idosa.");
+        }
+    }
+}
+
+
+26.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o número total de eleitores: ");
+        int totalEleitores = scanner.nextInt();
+
+        int[] votos = new int[3]; // Array para armazenar os votos dos candidatos
+
+        for (int i = 0; i < totalEleitores; i++) {
+            System.out.println("Eleitor " + (i + 1) + ":");
+            System.out.println("Digite o número do candidato (1, 2 ou 3): ");
+            int voto = scanner.nextInt();
+
+            if (voto >= 1 && voto <= 3) {
+                votos[voto - 1]++; // Incrementa o contador de votos do candidato correspondente
+            } else {
+                System.out.println("Opção inválida. O voto não será contabilizado.");
+            }
+        }
+
+        System.out.println("Resultado da votação:");
+        for (int i = 0; i < votos.length; i++) {
+            System.out.println("Candidato " + (i + 1) + ": " + votos[i] + " votos.");
+        }
+    }
+}
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+27.
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o número de turmas: ");
+        int numeroTurmas = scanner.nextInt();
+
+        int totalAlunos = 0;
+
+        for (int i = 1; i <= numeroTurmas; i++) {
+            int alunosPorTurma;
+
+            do {
+                System.out.print("Digite o número de alunos para a turma " + i + " (máximo 40 alunos): ");
+                alunosPorTurma = scanner.nextInt();
+
+                if (alunosPorTurma > 40) {
+                    System.out.println("O número de alunos excede o máximo permitido de 40. Tente novamente.");
+                }
+            } while (alunosPorTurma > 40);
+
+            totalAlunos += alunosPorTurma;
+        }
+
+        double mediaAlunosPorTurma = (double) totalAlunos / numeroTurmas;
+        System.out.println("A média de alunos por turma é: " + mediaAlunosPorTurma);
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+28.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite a quantidade de CDs na coleção: ");
+        int quantidadeCDs = scanner.nextInt();
+
+        double valorTotal = 0;
+
+        for (int i = 1; i <= quantidadeCDs; i++) {
+            System.out.print("Digite o valor do CD " + i + ": ");
+            double valorCD = scanner.nextDouble();
+            valorTotal += valorCD;
+        }
+
+        double valorMedioPorCD = valorTotal / quantidadeCDs;
+
+        System.out.println("O valor total investido na coleção de CDs é: R$" + valorTotal);
+        System.out.println("O valor médio gasto em cada CD é: R$" + valorMedioPorCD);
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+29.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Lojas Quase Dois - Tabela de preços");
+
+        // Loop de 1 a 50 para gerar os preços
+        for (int i = 1; i <= 50; i++) {
+            double preco = i * 1.99; // Cálculo do preço
+
+            // Formatação da saída para exibir o número de itens e o preço
+            System.out.println(i + " - R$ " + String.format("%.2f", preco));
+        }
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+30.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Preço do pão: R$ ");
+        double precoPao = scanner.nextDouble();
+
+        System.out.println("Panificadora Pão de Ontem - Tabela de preços");
+
+        for (int i = 1; i <= 50; i++) {
+            double precoTotal = i * precoPao;
+            System.out.println(i + " - R$ " + String.format("%.2f", precoTotal));
+        }
+    }
+}
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+31.// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int contador = 1;
+
+        while (true) {
+            System.out.println("Lojas Tabajara");
+            double total = 0;
+            double preco;
+            int produto = 1;
+
+            while (true) {
+                System.out.print("Produto " + produto + ": R$ ");
+                preco = scanner.nextDouble();
+
+                if (Math.abs(preco - 0) < 0.0001) { // Comparação utilizando uma margem de tolerância
+                    break;
+                }
+
+                total += preco;
+                produto++;
+            }
+
+            System.out.println("Total: R$ " + total);
+
+            System.out.print("Dinheiro: R$ ");
+            double dinheiro = scanner.nextDouble();
+
+            double troco = dinheiro - total;
+            System.out.println("Troco: R$ " + troco);
+
+            System.out.println("...");
+
+            contador++;
+        }
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+32.
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Fatorial de: ");
+        int numero = scanner.nextInt();
+
+        System.out.print(numero + "! = ");
+        int resultado = 1;
+
+        for (int i = numero; i > 0; i--) {
+            System.out.print(i);
+            resultado *= i;
+
+            if (i != 1) {
+                System.out.print(" . ");
+            }
+        }
+
+        System.out.println(" = " + resultado);
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+33.
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double temperatura;
+        double soma = 0;
+        double maior = Double.MIN_VALUE;
+        double menor = Double.MAX_VALUE;
+        int contador = 0;
+
+        System.out.println("Digite as temperaturas (digite 0 para encerrar):");
+
+        do {
+            temperatura = scanner.nextDouble();
+
+            if (temperatura != 0) {
+                soma += temperatura;
+                contador++;
+
+                if (temperatura > maior) {
+                    maior = temperatura;
+                }
+
+                if (temperatura < menor) {
+                    menor = temperatura;
+                }
+            }
+        } while (temperatura != 0);
+
+        if (contador > 0) {
+            double media = soma / contador;
+            System.out.println("Maior temperatura: " + maior);
+            System.out.println("Menor temperatura: " + menor);
+            System.out.println("Média das temperaturas: " + media);
+        } else {
+            System.out.println("Nenhuma temperatura foi fornecida.");
+        }
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+34.
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro: ");
+        int numero = scanner.nextInt();
+
+        boolean ehPrimo = true;
+
+        // Verificando se o número é divisível por algum outro número além de 1 e ele mesmo
+        for (int i = 2; i <= Math.sqrt(numero); i++) {
+            if (numero % i == 0) {
+                ehPrimo = false;
+                break;
+            }
+        }
+
+        if (numero <= 1) {
+            ehPrimo = false; // Números menores ou iguais a 1 não são primos
+        }
+
+        if (ehPrimo) {
+            System.out.println(numero + " é um número primo.");
+        } else {
+            System.out.println(numero + " não é um número primo.");
+        }
+    }
+}
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+35.
+
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro: ");
+        int limite = scanner.nextInt();
+
+        System.out.println("Números primos entre 1 e " + limite + ":");
+
+        for (int numero = 2; numero <= limite; numero++) {
+            if (ehPrimo(numero)) {
+                System.out.print(numero + " ");
+            }
+        }
+    }
+
+    // Método para verificar se um número é primo
+    public static boolean ehPrimo(int numero) {
+        if (numero <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(numero); i++) {
+            if (numero % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+36.
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Montar a tabuada de: ");
+        int numero = scanner.nextInt();
+
+        System.out.print("Começar por: ");
+        int inicio = scanner.nextInt();
+
+        System.out.print("Terminar em: ");
+        int fim = scanner.nextInt();
+
+        System.out.println("Vou montar a tabuada de " + numero + " começando em " + inicio + " e terminando em " + fim + ":");
+
+        for (int i = inicio; i <= fim; i++) {
+            int resultado = numero * i;
+            System.out.println(numero + " X " + i + " = " + resultado);
+        }
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+37.
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int codigo;
+        double altura, peso;
+        int maisAltoCodigo = 0, maisBaixoCodigo = 0, maisGordoCodigo = 0, maisMagroCodigo = 0;
+        double alturaMaisAlto = Double.MIN_VALUE, alturaMaisBaixo = Double.MAX_VALUE;
+        double pesoMaisGordo = Double.MIN_VALUE, pesoMaisMagro = Double.MAX_VALUE;
+        double somaAlturas = 0, somaPesos = 0;
+        int contadorClientes = 0;
+
+        while (true) {
+            System.out.print("Digite o código do cliente (ou 0 para encerrar): ");
+            codigo = scanner.nextInt();
+
+            if (codigo == 0) {
+                break;
+            }
+
+            System.out.print("Digite a altura do cliente: ");
+            altura = scanner.nextDouble();
+
+            System.out.print("Digite o peso do cliente: ");
+            peso = scanner.nextDouble();
+
+            somaAlturas += altura;
+            somaPesos += peso;
+            contadorClientes++;
+
+            if (altura > alturaMaisAlto) {
+                alturaMaisAlto = altura;
+                maisAltoCodigo = codigo;
+            }
+
+            if (altura < alturaMaisBaixo) {
+                alturaMaisBaixo = altura;
+                maisBaixoCodigo = codigo;
+            }
+
+            if (peso > pesoMaisGordo) {
+                pesoMaisGordo = peso;
+                maisGordoCodigo = codigo;
+            }
+
+            if (peso < pesoMaisMagro) {
+                pesoMaisMagro = peso;
+                maisMagroCodigo = codigo;
+            }
+        }
+
+        if (contadorClientes > 0) {
+            double mediaAlturas = somaAlturas / contadorClientes;
+            double mediaPesos = somaPesos / contadorClientes;
+
+            System.out.println("Cliente mais alto: Código " + maisAltoCodigo + ", Altura " + alturaMaisAlto);
+            System.out.println("Cliente mais baixo: Código " + maisBaixoCodigo + ", Altura " + alturaMaisBaixo);
+            System.out.println("Cliente mais gordo: Código " + maisGordoCodigo + ", Peso " + pesoMaisGordo);
+            System.out.println("Cliente mais magro: Código " + maisMagroCodigo + ", Peso " + pesoMaisMagro);
+            System.out.println("Média das alturas: " + mediaAlturas);
+            System.out.println("Média dos pesos: " + mediaPesos);
+        } else {
+            System.out.println("Nenhum cliente cadastrado.");
+        }
+    }
+}
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+38.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o salário inicial do funcionário: R$ ");
+        double salarioInicial = scanner.nextDouble();
+
+        int anoAtual = 2024; // Considerando o ano atual como 2024
+        int anoContratacao = 1995;
+        double salarioAtual = salarioInicial;
+
+        // Initialize percentualAumento outside the loop before using it in the else block
+        double percentualAumento = 0;
+
+        for (int ano = anoContratacao + 1; ano <= anoAtual; ano++) {
+
+            if (ano == anoContratacao + 1) {
+                percentualAumento = 1.5; // Aumento de 1,5% no segundo ano
+            } else {
+                percentualAumento = 2 * (percentualAumento / 100); // Aumento do dobro do percentual do ano anterior
+            }
+
+            salarioAtual += salarioAtual * (percentualAumento / 100);
+        }
+
+        System.out.println("Salário atual do funcionário em " + anoAtual + ": R$ " + salarioAtual);
+    }
+}
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+39.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int numeroAluno;
+        double altura;
+        int numeroAlunoMaisAlto = 0, numeroAlunoMaisBaixo = 0;
+        double alturaMaisAlto = Double.MIN_VALUE, alturaMaisBaixo = Double.MAX_VALUE;
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.print("Digite o número do aluno " + i + ": ");
+            numeroAluno = scanner.nextInt();
+
+            System.out.print("Digite a altura do aluno " + i + " (em centímetros): ");
+            altura = scanner.nextDouble();
+
+            if (altura > alturaMaisAlto) {
+                alturaMaisAlto = altura;
+                numeroAlunoMaisAlto = numeroAluno;
+            }
+
+            if (altura < alturaMaisBaixo) {
+                alturaMaisBaixo = altura;
+                numeroAlunoMaisBaixo = numeroAluno;
+            }
+        }
+
+        System.out.println("Aluno mais alto:");
+        System.out.println("Número do aluno: " + numeroAlunoMaisAlto);
+        System.out.println("Altura: " + alturaMaisAlto + " cm");
+
+        System.out.println("\nAluno mais baixo:");
+        System.out.println("Número do aluno: " + numeroAlunoMaisBaixo);
+        System.out.println("Altura: " + alturaMaisBaixo + " cm");
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+40.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int codigoCidade;
+        int veiculosPasseio;
+        int acidentesTransito;
+        int totalVeiculos = 0;
+        int totalCidadesMenor2000 = 0;
+        int totalAcidentesMenor2000 = 0;
+        int maiorIndiceAcidentes = Integer.MIN_VALUE;
+        int menorIndiceAcidentes = Integer.MAX_VALUE;
+        int codigoCidadeMaiorIndice = 0;
+        int codigoCidadeMenorIndice = 0;
+
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Cidade " + i + ":");
+
+            System.out.print("Código da cidade: ");
+            codigoCidade = scanner.nextInt();
+
+            System.out.print("Número de veículos de passeio em 1999: ");
+            veiculosPasseio = scanner.nextInt();
+
+            System.out.print("Número de acidentes de trânsito com vítimas em 1999: ");
+            acidentesTransito = scanner.nextInt();
+
+            totalVeiculos += veiculosPasseio;
+
+            if (veiculosPasseio < 2000) {
+                totalCidadesMenor2000++;
+                totalAcidentesMenor2000 += acidentesTransito;
+            }
+
+            if (acidentesTransito > maiorIndiceAcidentes) {
+                maiorIndiceAcidentes = acidentesTransito;
+                codigoCidadeMaiorIndice = codigoCidade;
+            }
+
+            if (acidentesTransito < menorIndiceAcidentes) {
+                menorIndiceAcidentes = acidentesTransito;
+                codigoCidadeMenorIndice = codigoCidade;
+            }
+        }
+
+        double mediaVeiculos = totalVeiculos / 5.0;
+        double mediaAcidentesMenor2000 = totalAcidentesMenor2000 / (double) totalCidadesMenor2000;
+
+        System.out.println("\nMaior índice de acidentes de trânsito:");
+        System.out.println("Cidade: " + codigoCidadeMaiorIndice);
+        System.out.println("Número de acidentes: " + maiorIndiceAcidentes);
+
+        System.out.println("\nMenor índice de acidentes de trânsito:");
+        System.out.println("Cidade: " + codigoCidadeMenorIndice);
+        System.out.println("Número de acidentes: " + menorIndiceAcidentes);
+
+        System.out.println("\nMédia de veículos nas cinco cidades: " + mediaVeiculos);
+        System.out.println("Média de acidentes de trânsito nas cidades com menos de 2.000 veículos de passeio: " + mediaAcidentesMenor2000);
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+41.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("#,##0.00");
+
+        System.out.print("Digite o valor da dívida: R$ ");
+        double valorDivida = scanner.nextDouble();
+
+        System.out.println("Valor da Dívida\tValor dos Juros\tQuantidade de Parcelas\tValor da Parcela");
+
+        double valorJuros = 0;
+        double valorParcela;
+
+        for (int parcelas = 1; parcelas <= 12; parcelas += 3) {
+            switch (parcelas) {
+                case 1:
+                    valorJuros = 0;
+                    break;
+                case 4:
+                    valorJuros = valorDivida * 0.10;
+                    break;
+                case 7:
+                    valorJuros = valorDivida * 0.15;
+                    break;
+                case 9:
+                    valorJuros = valorDivida * 0.20;
+                    break;
+                case 10:
+                    valorJuros = valorDivida * 0.25;
+                    break;
+            }
+
+            double valorTotal = valorDivida + valorJuros;
+            valorParcela = valorTotal / parcelas;
+
+            System.out.println("R$ " + df.format(valorTotal) + "\t\tR$ " + df.format(valorJuros) + "\t\t" + parcelas + "\t\t\t\tR$ " + df.format(valorParcela));
+        }
+    }
+}
+
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+42.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int intervalo1 = 0; // [0-25]
+        int intervalo2 = 0; // [26-50]
+        int intervalo3 = 0; // [51-75]
+        int intervalo4 = 0; // [76-100]
+
+        System.out.println("Digite números positivos (digite um número negativo para encerrar):");
+
+        while (true) {
+            int numero = scanner.nextInt();
+
+            if (numero < 0) {
+                break; // Encerra o loop quando um número negativo é lido
+            }
+
+            if (numero >= 0 && numero <= 25) {
+                intervalo1++;
+            } else if (numero >= 26 && numero <= 50) {
+                intervalo2++;
+            } else if (numero >= 51 && numero <= 75) {
+                intervalo3++;
+            } else if (numero >= 76 && numero <= 100) {
+                intervalo4++;
+            }
+        }
+
+        System.out.println("Quantidade de números nos intervalos:");
+        System.out.println("[0-25]: " + intervalo1);
+        System.out.println("[26-50]: " + intervalo2);
+        System.out.println("[51-75]: " + intervalo3);
+        System.out.println("[76-100]: " + intervalo4);
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+43.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Mostrando o cardápio
+        System.out.println("=== Cardápio ===");
+        System.out.println("Especificação\tCódigo\tPreço");
+        System.out.println("Cachorro Quente\t100\tR$ 1,20");
+        System.out.println("Bauru Simples\t101\tR$ 1,30");
+        System.out.println("Bauru com ovo\t102\tR$ 1,50");
+        System.out.println("Hambúrguer\t103\tR$ 1,20");
+        System.out.println("Cheeseburguer\t104\tR$ 1,30");
+        System.out.println("Refrigerante\t105\tR$ 1,00");
+
+        double totalPedido = 0;
+
+        while (true) {
+            System.out.print("\nDigite o código do item desejado (ou 0 para finalizar o pedido): ");
+            int codigo = scanner.nextInt();
+
+            if (codigo == 0) {
+                break; // Encerra o loop quando o usuário digita 0
+            }
+
+            double precoItem = 0;
+            String descricaoItem = "";
+
+            switch (codigo) {
+                case 100:
+                    precoItem = 1.20;
+                    descricaoItem = "Cachorro Quente";
+                    break;
+                case 101:
+                    precoItem = 1.30;
+                    descricaoItem = "Bauru Simples";
+                    break;
+                case 102:
+                    precoItem = 1.50;
+                    descricaoItem = "Bauru com ovo";
+                    break;
+                case 103:
+                    precoItem = 1.20;
+                    descricaoItem = "Hambúrguer";
+                    break;
+                case 104:
+                    precoItem = 1.30;
+                    descricaoItem = "Cheeseburguer";
+                    break;
+                case 105:
+                    precoItem = 1.00;
+                    descricaoItem = "Refrigerante";
+                    break;
+                default:
+                    System.out.println("Código inválido. Por favor, digite um código válido.");
+                    continue; // Pula para a próxima iteração do loop
+            }
+
+            totalPedido += precoItem;
+            System.out.println(descricaoItem + " adicionado ao pedido. Preço: R$ " + precoItem);
+        }
+
+        System.out.println("\nTotal do pedido: R$ " + totalPedido);
+        System.out.println("Obrigado por comprar conosco!");
+    }
+}
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+44.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanne1r = new Scanner(System.in);
+
+        int[] votos = new int[6]; // Índice 0 para votos do candidato 1, índice 1 para candidato 2 e assim por diante
+        int totalVotos = 0;
+
+        System.out.println("Códigos de votação:");
+        System.out.println("1 - Candidato 1");
+        System.out.println("2 - Candidato 2");
+        System.out.println("3 - Candidato 3");
+        System.out.println("4 - Candidato 4");
+        System.out.println("5 - Voto Nulo");
+        System.out.println("6 - Voto em Branco");
+        System.out.println("Digite o código de voto (ou 0 para encerrar):");
+
+        while (true) {
+            int voto = scanner.nextInt();
+
+            if (voto == 0) {
+                break; // Encerra o loop quando o usuário digita 0
+            }
+
+            if (voto >= 1 && voto <= 6) {
+                votos[voto - 1]++; // Incrementa o contador do voto correspondente ao código
+                totalVotos++; // Incrementa o total de votos
+            } else {
+                System.out.println("Código de voto inválido. Por favor, digite um código válido.");
+            }
+        }
+
+        System.out.println("\nResultados da eleição:");
+        System.out.println("Candidato 1: " + votos[0] + " votos");
+        System.out.println("Candidato 2: " + votos[1] + " votos");
+        System.out.println("Candidato 3: " + votos[2] + " votos");
+        System.out.println("Candidato 4: " + votos[3] + " votos");
+        System.out.println("Votos Nulos: " + votos[4]);
+        System.out.println("Votos em Branco: " + votos[5]);
+      System.out.println ("votos totais: " + totalVotos );
+
+        int totalVotosNulos = votos[4];
+        int totalVotosBranco = votos[5];
+
+        double percentualNulos = (double) totalVotosNulos / totalVotos * 100;
+        double percentualBranco = (double) totalVotosBranco / totalVotos * 100;
+
+        System.out.println("\nPercentual de votos nulos sobre o total de votos: " + String.format("%.2f", percentualNulos) + "%");
+        System.out.println("Percentual de votos em branco sobre o total de votos: " + String.format("%.2f", percentualBranco) + "%");
+    }
+}
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+45.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Gabarito da prova
+        String[] gabarito = {"A", "B", "C", "D", "E", "E", "D", "C", "B", "A"};
+
+        int totalAlunos = 0;
+        int maiorAcerto = 0;
+        int menorAcerto = 10;
+        int totalAcertosTurma = 0;
+
+        char continuar;
+
+        do {
+            // Resetando o contador de acertos para cada aluno
+            int acertos = 0;
+
+            System.out.println("Responda as 10 questões:");
+            for (int i = 0; i < gabarito.length; i++) {
+                System.out.print("Questão " + (i + 1) + ": ");
+                String resposta = scanner.next().toUpperCase();
+
+                if (resposta.equals(gabarito[i])) {
+                    acertos++;
+                }
+            }
+
+            // Atualizando estatísticas da turma
+            totalAlunos++;
+            totalAcertosTurma += acertos;
+
+            if (acertos > maiorAcerto) {
+                maiorAcerto = acertos;
+            }
+            if (acertos < menorAcerto) {
+                menorAcerto = acertos;
+            }
+
+            // Perguntando se há outro aluno
+            System.out.print("Outro aluno vai utilizar o sistema? (S/N): ");
+            continuar = scanner.next().charAt(0);
+
+        } while (continuar == 'S' || continuar == 's');
+
+        // Calculando média das notas da turma
+        double mediaTurma = (double) totalAcertosTurma / totalAlunos;
+
+        // Exibindo os resultados finais
+        System.out.println("\n--- Resultados ---");
+        System.out.println("Maior Acerto: " + maiorAcerto);
+        System.out.println("Menor Acerto: " + menorAcerto);
+        System.out.println("Total de Alunos: " + totalAlunos);
+        System.out.println("Média das Notas da Turma: " + String.format("%.2f", mediaTurma));
+    }
+}
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+46.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+  import java.util.Collections;
+  import java.util.Scanner;
+
+  public class Main {
+      public static void main(String[] args) {
+          Scanner scanner = new Scanner(System.in);
+          ArrayList<Double> saltos = new ArrayList<>();
+
+          while (true) {
+              System.out.print("Nome do atleta (ou deixe em branco para encerrar): ");
+              String nome = scanner.nextLine();
+
+              if (nome.isEmpty()) {
+                  break; // Encerra o loop quando o nome do atleta não é informado
+              }
+
+              // Solicita os saltos do atleta
+              for (int i = 0; i < 5; i++) {
+                  System.out.print("Informe a distância do " + (i + 1) + "º salto em metros: ");
+                  double salto = scanner.nextDouble();
+                  saltos.add(salto);
+              }
+
+              // Encontra o melhor e o pior salto
+              double melhorSalto = Collections.max(saltos);
+              double piorSalto = Collections.min(saltos);
+              saltos.remove(melhorSalto);
+              saltos.remove(piorSalto);
+
+              // Calcula a média dos demais saltos
+              double soma = 0;
+              for (double salto : saltos) {
+                  soma += salto;
+              }
+              double media = soma / 3;
+
+              // Exibe os resultados
+              System.out.println("\nResultado final:");
+              System.out.println(nome + ": " + String.format("%.2f", media) + " m\n");
+
+              // Limpa a lista de saltos para o próximo atleta
+              saltos.clear();
+
+              // Limpa o buffer do scanner
+              scanner.nextLine();
+          }
+      }
+  }
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+47.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o nome do ginasta: ");
+        String nome = scanner.nextLine();
+
+        ArrayList<Double> notas = new ArrayList<>();
+
+        for (int i = 0; i < 7; i++) {
+            System.out.print("Nota " + (i + 1) + ": ");
+            double nota = scanner.nextDouble();
+            notas.add(nota);
+        }
+
+        double melhorNota = Collections.max(notas);
+        double piorNota = Collections.min(notas);
+        notas.remove(melhorNota);
+        notas.remove(piorNota);
+
+        double soma = 0;
+        for (double nota : notas) {
+            soma += nota;
+        }
+        double media = soma / 5;
+
+        System.out.println("\nResultado final:");
+        System.out.println("Atleta: " + nome);
+        System.out.println("Melhor nota: " + melhorNota);
+        System.out.println("Pior nota: " + piorNota);
+        System.out.println("Média: " + String.format("%.2f", media));
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+48.
+
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro positivo: ");
+        int numero = scanner.nextInt();
+
+        int numeroInvertido = inverterNumero(numero);
+
+        System.out.println("Número invertido: " + numeroInvertido);
+    }
+
+    public static int inverterNumero(int numero) {
+        int numeroInvertido = 0;
+
+        while (numero != 0) {
+            int digito = numero % 10;
+            numeroInvertido = numeroInvertido * 10 + digito;
+            numero /= 10;
+        }
+
+        return numeroInvertido;
+    }
+}
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+49.
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite a quantidade de termos (n): ");
+        int n = scanner.nextInt();
+
+        double soma = 0;
+        int denominador = 1;
+
+        for (int numerador = 1; numerador <= n; numerador++) {
+            soma += (double) numerador / denominador;
+            denominador += 2;
+        }
+
+        System.out.println("Soma dos " + n + " termos da série: " + soma);
+    }
+}
+
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
+
+
+50.
+
+
+
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite a quantidade de termos (N): ");
+        int N = scanner.nextInt();
+
+        double H = 0;
+
+        for (int i = 1; i <= N; i++) {
+            H += 1.0 / i;
+        }
+
+        System.out.println("O valor de H com " + N + " termos é: " + H);
+    }
+}
+
+  // @Test
+  // void addition() {
+  //     assertEquals(2, 1 + 1);
+  // }
